@@ -1,9 +1,9 @@
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
-        totsum = sum(nums)
+        rsum = sum(nums)
         lsum = 0
         for idx,i in enumerate(nums):
-            if totsum-i-lsum == lsum: 
-                return idx
+            rsum-=i
+            if lsum == rsum: return idx
             lsum+=i
         return -1
