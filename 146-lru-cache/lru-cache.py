@@ -77,6 +77,13 @@ class LRUCache:
         self.vals[key] = value
         # self.q.print()
 
+# APPROACH 1
+# -> PUT all values in a queue
+
+# 1 2 3 2 4 1 5 6
+# [ , ]
+
+
 # Your LRUCache object will be instantiated and called as such:
 # obj = LRUCache(capacity)
 # param_1 = obj.get(key)
