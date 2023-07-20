@@ -1,22 +1,22 @@
 class Solution:
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
-        stack = []
-
+        stack=[]
         for i in asteroids:
-            if not stack: stack.append(i)
-            elif stack[-1]>0 and i<0:
-                flag = False
-                while stack and stack[-1]>0:
-                    if i<0 and stack[-1]<-i:
-                        stack.pop()
-                    elif stack[-1] == -i:
-                        stack.pop()
-                        flag = True
-                        break
-                    else: break
-                if not flag and (not stack or stack[-1]<0): stack.append(i)
+            if not stack: stack.append(i);continue
+            if stack[-1]<0 or i>0: stack.append(i);continue
+            while stack and stack[-1]>0 and i<0:
+                if -i>stack[-1]:
+                    stack.pop()
+                else: 
+                    curr = stack.pop()
+                    if curr != -i:
+                        if curr>-i: stack.append(curr)
+                        else: stack.append(i)
+                    break
             else: stack.append(i)
-        
+
+            # if ast: stack.append(ast)
+            
         return stack
 
 # 1 2 3 -1 2 
