@@ -1,13 +1,13 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
+        if len(nums) == 1: return nums[0]
 
-        memo = {}
+        dp = [0]*len(nums)
+        dp[0] = nums[0]
+        dp[1] = max(nums[0], nums[1])
+
+        for i in range(2, len(nums)):
+            dp[i] = max(dp[i-1], nums[i]+dp[i-2])
         
-        def rec(pos):
-            if pos in memo: return memo[pos]
-            if pos == 0: return nums[0]
-            if pos == 1: return max(nums[0], nums[1])
-            memo[pos] = max(rec(pos-1), nums[pos]+rec(pos-2))
-            return memo[pos]
-
-        return rec(len(nums)-1)
+        return dp[-1]
+        
