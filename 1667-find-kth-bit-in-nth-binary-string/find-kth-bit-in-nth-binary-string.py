@@ -14,7 +14,7 @@ class Solution:
                 if inv&1: return'0'
                 return '1'
             
-            if k > nln: return rec((nln<<1)-k, inv+1, nln)
+            if k > nln: return rec(nln+nln-k, inv+1, nln)
             
             return rec(k, inv, nln)
 
