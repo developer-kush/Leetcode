@@ -1,16 +1,24 @@
 class Solution:
     def findKthBit(self, n: int, k: int) -> str:
 
-        def rec(n):
-            if n == 1: return '0'
+        # 0111001
+        # 0111001  1  011 0 001
 
-            res = rec(n-1)
-            rev = "".join([ '0' if i=='1' else '1' for i in res])[::-1]
-            # rev = str(~int(res, 2)).rjust(len(res),'0')[::-1]
+        ln = (1<<n) - 1
 
-            return res+"1"+rev
+        def rec(k, inv, ln):
+            
+            if ln == 1:
+                if inv&1: return '1'
+                return '0'
 
-        s = rec(n)
-        # print(s)
+            nln = ln>>1
+            if k == nln:
+                if inv&1: return'0'
+                return '1'
+            
+            if k > nln: return rec(nln+nln-k, inv+1, nln)
+            
+            return rec(k, inv, nln)
 
-        return s[k-1]
+        return rec(k-1, 0, ln)
