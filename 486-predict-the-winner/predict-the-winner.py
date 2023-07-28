@@ -1,7 +1,7 @@
 class Solution:
     def PredictTheWinner(self, nums: List[int]) -> bool:
 
-        # @cache
+        @cache
         def rec(x,y,mode=0):
             if y<x: return 0
             
