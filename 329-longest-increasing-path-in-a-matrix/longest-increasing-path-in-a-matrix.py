@@ -14,4 +14,4 @@ class Solution:
             memo[x][y] = res + 1
             return res + 1
         
-        return max(max(rec(i,j) for j in range(m)) for i in range(n)) 
+        return max(rec(i,j) for j in range(m) for i in range(n)) 
