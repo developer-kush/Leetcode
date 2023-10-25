@@ -4,5 +4,5 @@ class Solution:
         tot = 0
         while k:
             k &= (k-1)
-            tot += 1
-        return tot&1
+            tot = 1 - tot
+        return tot
