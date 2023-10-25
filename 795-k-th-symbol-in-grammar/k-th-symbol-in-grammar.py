@@ -3,6 +3,6 @@ class Solution:
         k-=1
         tot = 0
         while k:
-            if k&1: tot = 1 - tot
-            k >>= 1
+            k &= (k-1)
+            tot = 1-tot
         return tot
