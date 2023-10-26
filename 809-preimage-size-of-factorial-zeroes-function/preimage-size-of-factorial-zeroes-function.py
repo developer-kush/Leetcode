@@ -1,13 +1,10 @@
-arr = [
-    6, 31, 156, 781, 3906, 19531, 97656, 488281, 
-    2441406, 12207031, 61035156, 305175781, 1525878906
-]
+arr = [1525878906, 305175781, 61035156, 12207031, 2441406, 488281, 97656, 19531, 3906, 781, 156, 31, 6]
 
 class Solution:
     def preimageSizeFZF(self, k: int) -> int:
         k += 1
 
-        for num in reversed(arr): k %= num
+        for num in arr: k %= num
         if not k: return 0
 
         return 5
