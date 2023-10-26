@@ -4,10 +4,9 @@ class Solution:
         rangeMap = Counter()
 
         # Marking rotatable ranges
-        for idx, num in enumerate(nums):
-            l, r = idx, (idx-num)%n
-            rangeMap[l] += 1
-            rangeMap[r+1] -= 1
+        for idx in range(n):
+            rangeMap[idx] += 1
+            rangeMap[(idx-nums[idx])%n+1] -= 1
 
         # Finding the best rotational value
         tot = midx = mxval = 0
