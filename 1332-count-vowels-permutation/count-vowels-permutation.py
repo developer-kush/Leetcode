@@ -1,5 +1,6 @@
 class Solution:
     def countVowelPermutation(self, n: int) -> int:
+        MOD = int(1e9 + 7)
         
         dp=[1,1,1,1,1]
         chars={
@@ -14,8 +15,7 @@ class Solution:
             new=[0,0,0,0,0]
             for j in range(5):
                 for k in chars[j]:
-                    new[j]+=dp[k]
+                    new[j] = (new[j] + dp[k])%MOD
             dp=new
         
-        return sum(dp)%(10**9+7)
-        
+        return sum(dp)%MOD
