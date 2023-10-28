@@ -12,10 +12,13 @@ class Solution:
         }
         
         for i in range(2,n+1):
-            new=[0,0,0,0,0]
-            for j in range(5):
-                for k in chars[j]:
-                    new[j] = (new[j] + dp[k])%MOD
+            new = [
+                (dp[1]+dp[2]+dp[4])%MOD,
+                (dp[0]+dp[2])%MOD,
+                (dp[1]+dp[3])%MOD,
+                dp[2],
+                (dp[2]+dp[3])%MOD
+            ]
             dp=new
         
         return sum(dp)%MOD
