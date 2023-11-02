@@ -4,8 +4,10 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
     def averageOfSubtree(self, root: Optional[TreeNode]) -> int:
+        
         def rec(root):
             if root is None: return [0, 0, 0]
             sc1, n1, sm1 = rec(root.left)
