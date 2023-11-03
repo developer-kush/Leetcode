@@ -1,12 +1,8 @@
 class Solution:
     def buildArray(self, target: List[int], n: int) -> List[str]:
-        res = []
-        pos = 0
-        for i in range(1,n+1):
-            if pos >= len(target): break
-            res.append("Push")
-            if target[pos] == i: 
-                pos += 1
-                continue
-            res.append("Pop")
+        res = ["Push", "Pop"]*(target[0]-1)
+        for idx in range(1, len(target)):
+            res += ["Push"]
+            res += ["Push", "Pop"]*(target[idx]-target[idx-1]-1)
+        res.append("Push")
         return res
