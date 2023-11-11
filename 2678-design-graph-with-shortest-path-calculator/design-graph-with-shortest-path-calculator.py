@@ -13,7 +13,8 @@ class Graph:
 
     def addEdge(self, edge: List[int]) -> None:
         u, v, w = edge
-        self.cost[u][v] = min(self.cost[u][v], w)
+        if w >= self.cost[u][v]: return
+        self.cost[u][v] = w
         for k in sorted([u, v]):
             for u in range(self.n):
                 for v in range(self.n):
