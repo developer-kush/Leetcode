@@ -2,7 +2,6 @@ class Solution(object):
     def numBusesToDestination(self, routes, source, target):
         if source == target: return 0
         idxmap = defaultdict(list)
-        # mindist = defaultdict(lambda : inf)
 
         for idx, route in enumerate(routes): 
             for node in route: idxmap[node].append(idx)
@@ -12,7 +11,6 @@ class Solution(object):
         q = deque([[target,0]])
         while q: 
             curr, dist = q.popleft()
-            # mindist[curr] = min(mindist[curr], dist)
             for ne in idxmap[curr]:
                 if ne in travelled: continue
                 travelled.add(ne)
