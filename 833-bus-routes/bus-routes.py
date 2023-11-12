@@ -1,27 +1,24 @@
 class Solution(object):
     def numBusesToDestination(self, routes, source, target):
-        if source == target:
-            return 0
+        if source == target: return 0
+        idxmap = defaultdict(list)
+        mindist = defaultdict(lambda : inf)
 
-        max_stop = max(max(route) for route in routes)
-        if max_stop < target:
-            return -1
+        for idx, route in enumerate(routes): 
+            for node in route: idxmap[node].append(idx)
 
-        n = len(routes)
-        min_buses_to_reach = [float('inf')] * (max_stop + 1)
-        min_buses_to_reach[source] = 0
-
-        flag = True
-        while flag:
-            flag = False
-            for route in routes:
-                mini = float('inf')
-                for stop in route:
-                    mini = min(mini, min_buses_to_reach[stop])
-                mini += 1
-                for stop in route:
-                    if min_buses_to_reach[stop] > mini:
-                        min_buses_to_reach[stop] = mini
-                        flag = True
-
-        return min_buses_to_reach[target] if min_buses_to_reach[target] < float('inf') else -1
+        travelled = set()
+        visited = set([target])
+        q = deque([[target,0]])
+        while q: 
+            curr, dist = q.popleft()
+            mindist[curr] = min(mindist[curr], dist)
+            for ne in idxmap[curr]:
+                if ne in travelled: continue
+                travelled.add(ne)
+                for node in routes[ne]:
+                    if node == source: return dist+1
+                    if node in visited: continue
+                    visited.add(node)
+                    q.append([node, dist+1])
+        return -1
