@@ -48,19 +48,6 @@ class Trie:
             else: return -1
         return int(res, 2)
 
-    # def retrieve(self):
-    #     def get(node,string,stings):
-    #         if node.is_end:
-    #             strings.append("".join(string))
-    #         for ch in node.children:
-    #             string.append(ch)
-    #             get(node.children[ch],string,strings)
-    #             string.pop()
-    #     string=[]
-    #     strings=[]
-    #     get(self,string,strings)
-    #     return strings
-
 class Solution:
     def maximumStrongPairXor(self, nums: List[int]) -> int:
 
