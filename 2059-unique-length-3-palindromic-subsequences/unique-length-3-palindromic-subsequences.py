@@ -1,8 +1,6 @@
 class Solution:
     def countPalindromicSubsequence(self, s: str) -> int:
-        freqs = {chr(i):0 for i in range(97, 123)}
-        for i in s:
-            freqs[i]+=1
+        freqs = Counter(s)
 
         ans = set()
         parsedletters = set()
