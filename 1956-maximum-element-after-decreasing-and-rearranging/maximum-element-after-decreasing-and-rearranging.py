@@ -3,6 +3,7 @@ class Solution:
         arr.sort()
 
         last = 0
-        for val in arr: last = min(val, last+1)
+        for val in arr: 
+            last += (val >= last+1)
         
         return last
