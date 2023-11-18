@@ -7,10 +7,9 @@ class Solution:
 
         for r in range(1, len(nums)):
             k -= (r-l)*(nums[r]-nums[r-1])
-            if nums[r]!=nums[r-1]: 
-                while l < r and k < 0:
-                    k += nums[r]-nums[l]
-                    l += 1
+            while l < r and k < 0:
+                k += nums[r]-nums[l]
+                l += 1
             res = max(res, r-l+1)
 
         return res
