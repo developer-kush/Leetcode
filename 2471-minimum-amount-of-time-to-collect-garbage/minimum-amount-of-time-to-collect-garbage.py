@@ -9,7 +9,6 @@ class Solution:
             if 'P' in garbage[i]: p,pfarthest=p+garbage[i]['P'],currdist
                 
             currdist+=travel[i]
-        
-        res=pfarthest+gfarthest+mfarthest+p+m+g
-        return res
+            
+        return pfarthest+gfarthest+mfarthest+p+m+g
         
