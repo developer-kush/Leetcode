@@ -8,8 +8,7 @@ class Solution:
         cnt = 0
 
         for i in corridor:
-            if i == 'P': 
-                if cnt and not cnt&1: last += 1
+            if i == 'P': last += (cnt and not cnt&1)
             if i == 'S':
                 cnt += 1
                 if cnt&1:
