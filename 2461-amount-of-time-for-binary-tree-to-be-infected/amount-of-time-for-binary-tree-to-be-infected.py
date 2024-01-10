@@ -22,10 +22,10 @@ class Solution:
 
         rec(root)
 
-        visited = set()
+        visited = set([start])
+
         def rec(root, dist = 0):
             res = dist
-            visited.add(root)
             for ne in tree[root]:
                 if ne not in visited: 
                     visited.add(ne)
