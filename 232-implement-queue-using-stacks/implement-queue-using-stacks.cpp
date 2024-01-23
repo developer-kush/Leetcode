@@ -2,13 +2,9 @@ class MyQueue {
 public:
     stack<int> front, rear;
 
-    MyQueue() {
-        
-    }
+    MyQueue() {}
     
-    void push(int x) {
-        rear.push(x);
-    }
+    void push(int x) { rear.push(x); }
     
     int pop() {
         if (front.empty()){
@@ -32,9 +28,7 @@ public:
         return front.top();
     }
     
-    bool empty() {
-        return front.empty() && rear.empty();
-    }
+    bool empty() { return front.empty() && rear.empty();  }
 };
 
 /**
