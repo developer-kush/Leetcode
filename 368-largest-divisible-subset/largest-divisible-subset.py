@@ -15,9 +15,7 @@ class Solution:
                     if dp.get(i, 0) > res: res, prev[val] = dp[i], i
             dp[val] = res + 1
 
-        maxval = max(dp.values())
-        for key in dp:
-            if dp[key] == maxval: break
+        key = max(dp, key = lambda x : dp[x])
 
         res = []
         while key != -1:
