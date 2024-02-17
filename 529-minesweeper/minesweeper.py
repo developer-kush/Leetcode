@@ -2,11 +2,6 @@ class Solution:
     def updateBoard(self, board: List[List[str]], click: List[int]) -> List[List[str]]:
         n, m = len(board), len(board[0])
 
-        # def printboard(board):
-        #     for row in board: print(*['.' if curr == 'B' else curr for curr in row])
-        # printboard(board)
-        # print("---")
-
         def mineVal(i, j):
             return sum(
                 (0<=r<n and 0<=c<m and board[r][c]=='M') 
@@ -30,7 +25,5 @@ class Solution:
                 for x, y in ((r-1, c), (r-1, c-1), (r-1, c+1), (r+1, c), (r+1, c-1), (r+1, c+1), (r, c-1), (r, c+1)):
                     if not (0<=x<n and 0<=y<m and board[x][y]=='E'): continue
                     q.append((x,y))
-
-        # printboard(board)
 
         return board
