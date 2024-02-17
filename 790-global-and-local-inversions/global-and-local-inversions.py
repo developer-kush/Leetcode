@@ -1,7 +1,5 @@
 class Solution:
     def isIdealPermutation(self, nums: List[int]) -> bool:
-        currmax = 0
-        for i in range(1, len(nums)):
-            if nums[i] < currmax: return False
-            currmax = max(currmax, nums[i-1])
+        if any(abs(val-idx) > 1 for idx,val in enumerate(nums)):
+            return False
         return True
