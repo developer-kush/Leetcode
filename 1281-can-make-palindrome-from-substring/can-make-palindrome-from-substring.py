@@ -18,6 +18,6 @@ class Solution:
             for st, k, idx in reqmap[i]:
                 cs = counts[st-1]
                 diffs = sum((ctr[chr(ch)]-cs.get(chr(ch), 0))&1 for ch in range(97, 97+26))
-                res[idx] = (diffs//2) <= k
+                res[idx] = (diffs >> 1) <= k
 
         return res
