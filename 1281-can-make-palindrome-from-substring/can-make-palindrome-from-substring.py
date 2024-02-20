@@ -1,6 +1,13 @@
 class Solution:
     def canMakePaliQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
 
+        def setCount(n):
+            tot = 0
+            while n:
+                tot += n&1
+                n >>= 1
+            return tot
+
         qstarts = set(query[0]-1 for query in queries)
         res = [0]*len(queries)
 
@@ -8,16 +15,17 @@ class Solution:
         for idx, (st, e, k) in enumerate(queries): reqmap[e].append((st, k, idx))
 
         counts = {}
-        ctr = Counter()
-        if -1 in qstarts: counts[-1] = dict(ctr)
+        ctr = 0
+        if -1 in qstarts: counts[-1] = 0
 
         for i in range(len(s)):
-            ctr[s[i]] += 1
-            if i in qstarts: counts[i] = dict(ctr)
+            ctr = ctr ^ (1 << (ord(s[i])-97))
+            
+            if i in qstarts: counts[i] = ctr
             
             for st, k, idx in reqmap[i]:
                 cs = counts[st-1]
-                diffs = sum((ctr[chr(ch)]-cs.get(chr(ch), 0))&1 for ch in range(97, 123))
+                diffs = setCount(ctr ^ cs)
                 res[idx] = (diffs >> 1) <= k
 
         return res
