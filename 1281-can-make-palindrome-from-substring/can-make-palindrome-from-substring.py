@@ -4,8 +4,8 @@ class Solution:
         def setCount(n):
             tot = 0
             while n:
-                tot += n&1
-                n >>= 1
+                tot += 1
+                n = n & (n-1)
             return tot
 
         qstarts = set(query[0]-1 for query in queries)
