@@ -1,8 +1,10 @@
 class Solution:
     def pathInZigZagTree(self, label: int) -> List[int]:
         depth = ceil(math.log2(label+1))
-        if not depth & 1: 
-            label = (1 << (depth-1)) + (1 << depth)-1 - label
+        if not depth & 1:
+            lb, ub = 1 << (depth-1), (1 << depth)-1
+            diff = label-lb
+            label = ub-diff
 
         res = []
 
@@ -14,6 +16,7 @@ class Solution:
 
         for i in range(1, len(res), 2):
             lb, ub = 1 << i, (1 << (i+1))-1
-            res[i] = ub + lb - res[i]
+            diff = res[i]-lb
+            res[i] = ub-diff
 
         return res
