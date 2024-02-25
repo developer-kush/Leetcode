@@ -24,7 +24,6 @@ class Solution:
                 graph[i].append(factor)
                 graph[factor].append(i)
         
-                
         visited = set()
         stack = [nums[0]]
         while stack:
@@ -34,5 +33,5 @@ class Solution:
                     visited.add(neigh)
                     stack.append(neigh)
         
-        if visited == allNums: return True
+        if len(visited) == len(allNums): return True
         return False
