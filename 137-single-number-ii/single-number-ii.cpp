@@ -11,9 +11,9 @@ public:
             }
         }
 
-        int res = 0;
+        long res = 0;
         for (int i = 31; i >= 0; i--){
-            res = (res<<1) | (arr[i]);
+            res = 2 * res + arr[i];
         }
         return res;
 
