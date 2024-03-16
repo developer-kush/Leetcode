@@ -9,8 +9,6 @@ class Solution:
         extraHead = ListNode(None)
         curr = extraHead
 
-        nxt = None
-
         while head and head.next:
             first = head
             second = head.next
