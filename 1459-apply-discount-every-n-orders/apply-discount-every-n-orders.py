@@ -1,8 +1,7 @@
 class Cashier:
 
     def __init__(self, n: int, discount: int, products: List[int], prices: List[int]):
-        self.price = {}
-        for x, y in zip(products, prices): self.price[x] = y
+        self.price = {x: y for x, y in zip(products, prices)}
         self.n = n 
         self.disc = discount
         self.customer = 0
