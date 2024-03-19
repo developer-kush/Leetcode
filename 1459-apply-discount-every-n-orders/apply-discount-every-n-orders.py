@@ -2,14 +2,14 @@ class Cashier:
 
     def __init__(self, n: int, discount: int, products: List[int], prices: List[int]):
         self.price = {}
-        for i in range(len(products)): self.price[products[i]] = prices[i]
+        for x, y in zip(products, prices): self.price[x] = y
         self.n = n 
         self.disc = discount
         self.customer = 0
 
     def getBill(self, product: List[int], amount: List[int]) -> float:
         self.customer = (self.customer + 1) % self.n
-        tot = sum(amount[i]*self.price[product[i]] for i in range(len(product)))
+        tot = sum(self.price[x]*y for x, y in zip(product, amount))
         if self.customer == 0: return tot * (100-self.disc) / 100
         return tot
 
