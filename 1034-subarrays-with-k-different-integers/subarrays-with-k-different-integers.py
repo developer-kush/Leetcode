@@ -25,5 +25,4 @@ class Solution:
 
             tot += maxhp[0]-l+1
 
-
         return tot
