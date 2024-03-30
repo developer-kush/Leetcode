@@ -23,5 +23,5 @@ class Solution:
             if len(maxmap) < k: continue
 
             tot += maxhp[0]-l+1
-
+            
         return tot
