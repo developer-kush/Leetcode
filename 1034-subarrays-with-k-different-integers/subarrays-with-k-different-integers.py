@@ -12,8 +12,7 @@ class Solution:
 
             while len(maxmap) > k: 
                 ctr[nums[l]]-=1
-                if ctr[nums[l]] == 0: 
-                    del maxmap[nums[l]]
+                if ctr[nums[l]] == 0: del maxmap[nums[l]]
                 l += 1
 
             while (nums[maxhp[0]] not in maxmap) or maxmap[nums[maxhp[0]]] > maxhp[0] : heappop(maxhp)
