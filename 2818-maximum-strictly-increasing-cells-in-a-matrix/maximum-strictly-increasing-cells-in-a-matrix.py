@@ -8,7 +8,7 @@ class Solution:
             for j in range(m):
                 valij[mat[i][j]].append((i, j))
 
-        for key in sorted(valij):
+        for key in sorted(valij, reverse = True):
             row_c, col_c = defaultdict(int), defaultdict(int)
             for i, j in valij[key]:
                 potential = max(rowmax[i], colmax[j]) + 1
