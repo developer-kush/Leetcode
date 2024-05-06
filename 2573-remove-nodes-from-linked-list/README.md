@@ -1,6 +1,6 @@
 <h2><a href="https://leetcode.com/problems/remove-nodes-from-linked-list">Remove Nodes From Linked List</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>You are given the <code>head</code> of a linked list.</p>
 
-<p>Remove every node which has a node with a <strong>strictly greater</strong> value anywhere to the right side of it.</p>
+<p>Remove every node which has a node with a greater value anywhere to the right side of it.</p>
 
 <p>Return <em>the </em><code>head</code><em> of the modified linked list.</em></p>
 
