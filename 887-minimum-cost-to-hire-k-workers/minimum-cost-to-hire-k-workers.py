@@ -1,23 +1,22 @@
 class Solution:
-    def mincostToHireWorkers(
-        self, quality: List[int], wage: List[int], k: int
-    ) -> float:
-        ratio = sorted([(w / q, q) for w, q in zip(wage, quality)])
-        max_heap = []
-        quality_sum = 0
-        max_ratio = 0.0
+    def mincostToHireWorkers(self, quality: List[int], wage: List[int], k: int) -> float:
+        n = len(quality)
+
+        wpq = sorted([ [w/q, q] for w, q in zip(wage, quality) ])
         
+        hp = []
+        s = 0
         for i in range(k):
-            max_ratio = max(max_ratio, ratio[i][0])
-            quality_sum += ratio[i][1]
-            heapq.heappush(max_heap, -ratio[i][1])
-        
-        res = max_ratio * quality_sum
-        
-        for i in range(k, len(quality)):
-            max_ratio = max(max_ratio, ratio[i][0])
-            quality_sum += ratio[i][1] + heapq.heappop(max_heap)
-            heapq.heappush(max_heap, -ratio[i][1])
-            res = min(res, max_ratio * quality_sum)
-        
+            unit_wage, quality = wpq[i]
+            s += quality
+            heappush(hp, -quality)
+
+        res = s*unit_wage
+
+        for i in range(k, n):
+            unit_wage, quality = wpq[i]
+            heappush(hp, -quality)
+            s += quality + heappop(hp)
+            res = min(res, s*unit_wage)
+
         return res
