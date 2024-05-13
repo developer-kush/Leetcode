@@ -14,9 +14,7 @@ class Solution:
             if root is None: return [0, 0]
             lcoins, lchild = rec(root.left)
             rcoins, rchild = rec(root.right)
-
             tot += abs(lcoins - lchild) + abs(rcoins - rchild)
-
             return [lcoins + rcoins + root.val, lchild + rchild + 1]
 
         rec(root)
