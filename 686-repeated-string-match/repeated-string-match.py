@@ -23,5 +23,5 @@ class Solution:
             if pref: res += 1
             if suff: res += 1
             return res
-            
+
         return -1
