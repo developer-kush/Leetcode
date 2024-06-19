@@ -13,7 +13,7 @@ class Solution:
         def check(x, dp, n, k, m):
             ptr = cnt = 0
             while ptr < n:
-                if ptr + k > len(bloomDay): break
+                if ptr + k > n: break
                 if dp[ptr] <= x: 
                     ptr = ptr + k
                     cnt += 1
