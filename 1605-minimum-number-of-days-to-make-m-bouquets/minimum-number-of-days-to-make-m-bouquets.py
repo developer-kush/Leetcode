@@ -21,10 +21,11 @@ class Solution:
                 if cnt >= m: return True
             return cnt >= m
         
-        l, r = min(bloomDay), max(bloomDay)
+        uniques = sorted(set(bloomDay))
+        l, r = 0, len(uniques)-1
         while l < r:
             mid = (l + r) >> 1
-            possible = check(mid, dp, n, k, m)
+            possible = check(uniques[mid], dp, n, k, m)
             if possible: r = mid
             else: l = mid+1
-        return l
+        return uniques[l]
