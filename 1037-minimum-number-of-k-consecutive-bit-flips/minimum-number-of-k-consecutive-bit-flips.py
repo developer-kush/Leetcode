@@ -10,8 +10,7 @@ class Solution:
             if len(q)&1: num = 1^nums[idx]
             else: num = nums[idx]
 
-            if idx >= bp:
-                if num == 0: return -1
+            if idx >= bp and num == 0: return -1
             elif num == 0: cnt += 1; q.append(idx)
         
         return cnt
