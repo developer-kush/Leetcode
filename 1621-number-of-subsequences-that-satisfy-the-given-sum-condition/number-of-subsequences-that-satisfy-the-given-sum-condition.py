@@ -1,6 +1,8 @@
 class Solution:
     def numSubseq(self, nums: List[int], target: int) -> int:
 
+        M = int(1e9+7)
+
         nums = sorted(nums)
         tot = 0
 
@@ -13,6 +15,6 @@ class Solution:
                 elif nums[pos] > (target - i): dist = pos - 1 - idx 
                 else: dist = pos - idx 
             if dist < 0: break
-            tot += (1<<dist)
+            tot = (tot + (1<<dist))%M
 
-        return tot%1000_000_007
+        return tot % M
