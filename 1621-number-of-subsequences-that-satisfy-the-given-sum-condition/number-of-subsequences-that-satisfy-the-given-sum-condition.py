@@ -15,6 +15,6 @@ class Solution:
                 elif nums[pos] > (target - i): dist = pos - 1 - idx 
                 else: dist = pos - idx 
             if dist < 0: break
-            tot = (tot + (1<<dist))%M
+            tot = (tot + (1<<dist)%M)%M
 
         return tot % M
