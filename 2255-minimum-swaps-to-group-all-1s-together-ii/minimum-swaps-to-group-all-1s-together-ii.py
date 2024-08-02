@@ -9,7 +9,7 @@ class Solution:
         for i in range(zc): cc += 1-nums[i]
         res = min(res, zc-cc)
 
-        for i in range(zc, len(nums)):
+        for i in range(zc, len(nums)//2 + zc):
             cc += 1-nums[i]
             cc -= 1-nums[i-zc]
             res = min(res, zc-cc)
