@@ -5,6 +5,7 @@ class Solution:
         res = [[r, c]]
 
         for i in range(1, max(xdist, ydist)+1):
+            
             if c+i < cols:
                 for x in range(max(0, r-i+1), min(r+i+1, rows)): res.append([x, c+i])
 
@@ -16,11 +17,5 @@ class Solution:
 
             if r-i >= 0:
                 for x in range(max(0, c-i+1), min(c+i+1, cols)): res.append([r-i, x])
-
-        # grid = [[0]*cols for _ in range(rows)]
-        # for idx, (u, v) in enumerate(res, 1):
-        #     try: grid[u][v] = idx
-        #     except: pass
-        # for row in grid: print(*row)
 
         return res
