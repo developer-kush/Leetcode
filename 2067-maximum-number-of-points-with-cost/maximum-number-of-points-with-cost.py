@@ -3,8 +3,7 @@ class Solution:
         
         row = points[0]
         n = len(row)
-
-        print(row)
+        
         for i in range(1, len(points)):
             curr = points[i]
 
@@ -19,18 +18,13 @@ class Solution:
             for i in range(n-2, -1, -1):
                 if rightscores[i] > rightscores[rindices[i+1]]: rindices[i] = i
                 else: rindices[i] = rindices[i+1]
-
-            # print(lindices, rindices)
             
             for i in range(n):
                 l, r = lindices[i], rindices[i]
                 lval = row[l]-(i-l)
                 rval = row[r]-(r-i)
-                # print(i, ":", lval, rval, "-", l, r)
                 curr[i] += max(lval, rval)
             
             row = curr
-            # print(row)
-
         
         return max(row)
