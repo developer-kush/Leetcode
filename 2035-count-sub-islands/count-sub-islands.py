@@ -37,9 +37,6 @@ class Solution:
                 if j and grid1[i][j] == grid1[i][j-1]:
                     dsu.union(key(i, j), key(i, j-1))
 
-        # mat = [[dsu.find(key(i, j)) for j in range(m)] for i in range(n)]
-        # for row in mat: print(*row)
-                    
         tot = 0
 
         for i in range(n):
