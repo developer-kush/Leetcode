@@ -1,26 +1,29 @@
 global factorial
 
-factorial = [1]*31
-for i in range(2, 31): factorial[i] = factorial[i-1]*i
+size = 30
+factorial = [1]*size
+for i in range(2, size): factorial[i] = factorial[i-1]*i
 
 
 class Solution:
     def kthSmallestPath(self, destination: List[int], k: int) -> str:
         global factorial
 
-        def nPr(n, copies):
-            res = factorial[n]
-            for num in copies: res //= factorial[num]
-            return res
+        # @cache
+        # def factorial(n):
+        #     if n <= 1: return 1
+        #     return n*factorial(n-1)
+
+        # def nCr(n, r):
+        #     return factorial[n]//(factorial[n-r]*factorial[r])
 
         v, h = destination
 
         res = ''
         for i in range(v+h):
-            if h == 0: res += 'V'; continue
-            if v == 0: res += 'H'; continue
+            if not h or not v: return res + "H"*h + "V"*v
             
-            covered = nPr(v+h-1, [v, h-1]) # Covered if take V
+            covered = comb(v+h-1, h-1) # Covered if take V
 
             if covered < k: 
                 res += 'V'
