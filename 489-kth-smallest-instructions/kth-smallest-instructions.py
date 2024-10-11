@@ -1,8 +1,8 @@
-global factorial
+# global factorial
 
-size = 30
-factorial = [1]*size
-for i in range(2, size): factorial[i] = factorial[i-1]*i
+# size = 30
+# factorial = [1]*size
+# for i in range(2, size): factorial[i] = factorial[i-1]*i
 
 
 class Solution:
