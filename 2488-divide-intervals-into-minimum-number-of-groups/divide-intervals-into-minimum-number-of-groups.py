@@ -1,16 +1,14 @@
-from sortedcontainers import SortedDict
-
 class Solution:
     def minGroups(self, intervals: List[List[int]]) -> int:
 
         cnt = res = 0
 
-        mp = SortedDict()
+        mp = Counter()
         for u, v in intervals: 
-            mp[u] = mp.get(u, 0) + 1
-            mp[v+1] = mp.get(v+1, 0) - 1
+            mp[u] += 1
+            mp[v+1] -= 1
 
-        for key in mp:
+        for key in sorted(mp):
             cnt += mp[key]
             res = max(res, cnt)
         
