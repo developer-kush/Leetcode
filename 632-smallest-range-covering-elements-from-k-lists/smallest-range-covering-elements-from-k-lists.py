@@ -8,15 +8,12 @@ class Solution:
         covcnt = Counter()
 
         l, mn = 0, float('inf')
-        res = []
-
-        def possible(l):
-            return all(covcnt[grp] > val for  grp, val in numGrps[srtKeys[l]].items())
+        res = [] 
 
         for r in range(len(srtKeys)):
             for grp, val in numGrps[srtKeys[r]].items(): covcnt[grp] += val
             
-            while l < r and possible(l):
+            while l < r and all(covcnt[grp] > val for  grp, val in numGrps[srtKeys[l]].items()):
                 for grp, val in numGrps[srtKeys[l]].items(): 
                     covcnt[grp] -= val
                 l += 1
