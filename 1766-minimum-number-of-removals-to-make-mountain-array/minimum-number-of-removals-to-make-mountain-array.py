@@ -32,10 +32,9 @@ class Solution:
                 lis_f[pos] = nums[i]
 
             if len(lis_f)==1 or lis[i]==1: continue
-            
+
             moun = len(lis_f) + lis[i]
             if lis_f[-1] == lisb_last[i] and not lcopy and not lis_cpy[i]: moun -= 1
-            print(i, ":", moun)
             res = min(res, n-moun)
             
         return res
