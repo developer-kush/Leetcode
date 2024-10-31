@@ -6,7 +6,7 @@ class Solution:
         @cache
         def rec(rob, fac, lim):
             if rob < 0: return 0
-            if fac < 0: return float('inf')
+            # if fac < 0: return float('inf')
             if lim == 0: 
                 if fac == 0: return float('inf')
                 return rec(rob, fac-1, factory[fac-1][1])
