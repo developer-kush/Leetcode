@@ -1,6 +1,5 @@
 class Solution:
     def maximumBeauty(self, items: List[List[int]], queries: List[int]) -> List[int]:
-        # items.append([inf, 0])
 
         maxvals = {}
         mx = 0
