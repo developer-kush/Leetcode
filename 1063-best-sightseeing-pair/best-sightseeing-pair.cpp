@@ -6,8 +6,6 @@ public:
         for (int i = 1; i < n; i++){
             int curr = values[i] + mv - (mi) - (i-mi);
             mxsc = max(mxsc, curr);
-            // cout<<mv<<" "<<mi<<" "<<values[i]<<" "<<i<<":"<<mxsc<<" "<<curr<<endl;
-
             if (values[i]+i > mv){
                 mv = values[i]+i;
                 mi = i;
