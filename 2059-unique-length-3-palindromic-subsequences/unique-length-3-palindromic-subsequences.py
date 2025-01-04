@@ -1,14 +1,15 @@
 class Solution:
     def countPalindromicSubsequence(self, s: str) -> int:
-        freqs = Counter(s)
+        tc = Counter(s)
+        c = Counter()
 
-        ans = set()
-        parsedletters = set()
-        for i in s:
-            freqs[i]-=1
-            for j in parsedletters:
-                if freqs[j]:
-                    ans.add(i+j)
-            parsedletters.add(i)
+        res = set()
 
-        return len(ans)
+        for ch in s:
+            tc[ch] -= 1
+            for char in range(97, 123):
+                char = chr(char)
+                if tc[char] and c[char]: res.add(char+ch)
+            c[ch] += 1
+        
+        return len(res)
