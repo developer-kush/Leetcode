@@ -1,6 +1,6 @@
 class Solution:
     def minOperations(self, boxes: str) -> List[int]:
-        res = []
+        res = [0]*len(boxes)
         curr = balls = pref = suff = 0
 
         for i in range(len(boxes)-1, -1, -1):
@@ -8,7 +8,7 @@ class Solution:
             balls += int(boxes[i])
         
         for i in range(len(boxes)):
-            res.append(pref + suff)
+            res[i] = pref + suff
             balls -= int(boxes[i])
             suff -= balls
             curr += int(boxes[i])
