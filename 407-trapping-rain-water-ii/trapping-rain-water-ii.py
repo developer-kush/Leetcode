@@ -10,15 +10,17 @@ class Solution:
         q = []
 
         for j in range(1, m-1): 
-            heappush(q, (heightMap[0][j], 0, j))
-            heappush(q, (heightMap[-1][j], n-1, j))
+            q.append((heightMap[0][j], 0, j))
+            q.append((heightMap[-1][j], n-1, j))
         for i in range(1, n-1):
-            heappush(q, (heightMap[i][0], i, 0))
-            heappush(q, (heightMap[i][-1], i, m-1))
+            q.append((heightMap[i][0], i, 0))
+            q.append((heightMap[i][-1], i, m-1))
 
         for i, j in ((0, 0), (0, m-1), (n-1, 0), (n-1, m-1)):
             remap[i][j] = heightMap[i][j]
-        
+
+        heapify(q)
+
         while q:
             h, x, y = heappop(q)
             if (x, y) in vis: continue
