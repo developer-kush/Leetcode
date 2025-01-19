@@ -1,7 +1,3 @@
-def prt(x):
-    for row in x: print(*row)
-    print("---")
-
 class Solution:
     def trapRainWater(self, heightMap: List[List[int]]) -> int:
         n, m = len(heightMap), len(heightMap[0])
