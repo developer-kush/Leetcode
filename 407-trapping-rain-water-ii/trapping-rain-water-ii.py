@@ -27,7 +27,7 @@ class Solution:
             vis.add((x, y))
             remap[x][y] = min(remap[x][y], h)
             for u, v in ((x, y-1), (x, y+1), (x-1, y), (x+1, y)):
-                if not (0 <= u < n and 0 <= v < m): continue
+                if not (1 <= u < n-1 and 1 <= v < m-1): continue
                 heappush(q, (max(h, heightMap[u][v]), u, v))
         
         return sum(sum(remap[i][j]-heightMap[i][j] for j in range(m)) for i in range(n))
