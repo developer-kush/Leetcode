@@ -5,6 +5,7 @@ class Solution:
         for i in range(r):
             for j in range(c):
                 nummap[mat[i][j]] = (i, j)
+        
         rows = [c]*r
         cols = [r]*c
         for idx, i in enumerate(arr):
